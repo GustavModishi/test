@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website for in-service training and current TUT vacancies</title>
+    <link rel="stylesheet" href="register.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+    <!-- <header>
+    
+        <div class="dropdown">
+          <button class="btnLogin-popup">Login</button>
+         <button class="dropbtn">Select User Type</button>
+          <div class="dropdown-content">
+              <a href="login.component.html" id="student">Student</a>
+              <a href="adminLogin.html" id="admin">Admin</a>
+          </div>
+        </div>
+    </header> -->
+    <div class="wrapper">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <div class="form-box login">
+        <h2>Registration</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+         
+          <div class="input-box">
+            <input type="email" required  name="email">
+            <label>TUT Email</label>
+            <div *ngIf="registerForm.get('email')?.hasError('email')">Email is required.</div>
+            <div *ngIf="registerForm.get('email')?.hasError('email')">Please enter a valid email address.</div>
+            <div *ngIf="registerForm.get('email')?.hasError('pattern')">Please enter a TUT email address.</div>
+          </div>
+          <div class="input-box">
+            <input type="password" required name="password">
+            <label>Password</label>
+            <div *ngIf="registerForm.get('password')?.hasError('password')">Please enter long password.</div>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox" name="agreeToTerms"> Agree to terms and conditions</label>
+          </div>
+          <button class="btn" type="submit">Register</button>
+          <div class="login-register">
+            <p>Already have an account? <a href="../login" class="login-link">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+    <script type ="module" src="https://unpkg.com/ionicons@s5.2/dist/ionicons.esm.js"></script>
+    
+</body>
+</html>
+
+
+

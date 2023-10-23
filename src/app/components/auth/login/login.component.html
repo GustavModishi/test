@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website for in-service training and current TUT vacancies</title>
+    <link rel="stylesheet" href="login.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+   
+
+    <div class="wrapper">
+  
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()" >
+               
+                <div class="input-box">
+                    <input type="email" id="email"  name="email" class="form-control" formControlName="email" required>
+                    <label>TUT Email</label>
+                    <div *ngIf="loginForm.get('email')?.hasError('email')">Email is required.</div>
+                    <div *ngIf="loginForm.get('email')?.hasError('email')">Please enter a valid email address.</div>
+                    <div *ngIf="loginForm.get('email')?.hasError('pattern')">Please enter a TUT email address.</div>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password" name="password" >
+                    <label>Password</label>
+                    <div *ngIf="loginForm.get('password')?.hasError('password')">Enter valid password.</div>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a routerLink="../forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button class="btn" type="submit">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="../register" class="Register-link">Register</a></p>
+                </div>
+            </form>
+            <div class="login-register">
+                
+            </div>
+        </div>
+        
+          
+    </div>
+
+
+    <script src="./script.js"></script>
+    <script type ="module" src="https://unpkg.com/ionicons@s5.2/dist/ionicons.esm.js"></script>
+    
+</body>
+</html>
+
